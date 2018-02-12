@@ -5,6 +5,24 @@
     <title>CSS 3d Transform</title>
 
     <style type="text/css">
+      a {
+        display: block;
+        font-size: 32px;
+        margin-top: 150px;
+      }
+
+      body {
+        background-color: lightgrey;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 52px;
+        margin-top: 40%;
+        text-align: center;
+        width: 100%;
+      }
+
       div#viewport {
         height: 200px;
         left: 50%;
@@ -21,9 +39,12 @@
         height: 100%;
         -moz-transform: rotateX(0deg) rotateY(0deg);
         -webkit-transform: rotateX(0deg) rotateY(0deg);
-        transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateX(45deg) rotateY(0deg);
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
+        -moz-transition: all 3s;
+        -webkit-transition: all 3s;
+        transition: all 3s;
       }
 
       div#cube div {
@@ -33,15 +54,14 @@
       }
 
       div#front {
-        background-color: red;
+        background-color: pink;
         -moz-transform: translateZ(100px);
         -webkit-transform: translateZ(100px);
         transform: translateZ(100px);
-
       }
 
       div#back {
-        background-color: red;
+        background-color: lavender;
         -moz-transform: translateZ(-100px) rotateY(180deg);
         -webkit-transform: translateZ(-100px) rotateY(180deg);
         transform: translateZ(-100px) rotateY(180deg);
@@ -70,39 +90,65 @@
       }
 
       div#right {
-        background-color: green;
+        background-color: aqua;
         -moz-transform: translateX(100px) rotateY(90deg);
         -webkit-transform: translateX(100px) rotateY(90deg);
         transform: translateX(100px) rotateY(90deg);
+      }
+
+      /*@keyframes Rotate {*/
+        /*from {*/
+          /*transform: rotateX(0deg) rotateY(0deg)*/
+        /*}*/
+        /*50% {*/
+          /*transform: rotateX(180deg) rotateY(180deg)*/
+        /*}*/
+        /*to {*/
+          /*transform: rotateX(360deg) rotateY(360deg)*/
+        /*}*/
+      /*}*/
+
+      /*#animate_link:hover + #viewport > #cube {*/
+        /*-moz-animation: Rotate 3s infinite;*/
+        /*-webkit-animation: Rotate 3s infinite;*/
+        /*animation: Rotate 3s infinite;*/
+      /*}*/
+
+      #animate_link:hover + #viewport > #cube {
+        -moz-transform: rotateX(-290deg) rotateY(150deg) rotateZ(130deg) translateX(400px);
+        -webkit-transform: rotateX(-290deg) rotateY(150deg) rotateZ(130deg) translateX(400px);
+        transform:  translateZ(500px) /*rotateX(180deg)*/ rotateY(180deg) /*rotateZ(360deg)*/;
       }
     </style>
   </head>
 
   <body>
+    <a href="#" id="animate_link">😎😎😎 HOVER ME FOR SWEET ANIMATIONZ 😎😎😎</a>
+
     <div id="viewport">
       <div id="cube">
         <div id="front">
-          <h1>FRONT</h1>
+          <h1>😎</h1>
         </div>
 
         <div id="back">
-          <h1>BACK</h1>
+          <h1>I'M COOL.</h1>
         </div>
 
         <div id="top">
-          <h1>TOP</h1>
+          <h1>😍</h1>
         </div>
 
         <div id="bottom">
-          <h1>BOTTOM</h1>
+          <h1>😇</h1>
         </div>
 
         <div id="left">
-          <h1>LEFT</h1>
+          <h1>😂</h1>
         </div>
 
         <div id="right">
-          <h1>RIGHT</h1>
+          <h1>🤡</h1>
         </div>
       </div>
     </div>
