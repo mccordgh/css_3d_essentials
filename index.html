@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS 3d Transform</title>
+
+    <style type="text/css">
+      div#viewport {
+        height: 200px;
+        left: 50%;
+        margin: -100px 0 0 -100px;
+        -moz-perspective: 1000px;
+        -webkit-perspective: 1000px;
+        perspective: 1000px;
+        position: absolute;
+        top: 50%;
+        width: 200px;
+      }
+
+      div#cube {
+        height: 100%;
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateX(0deg) rotateY(0deg);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
+
+      div#cube div {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      div#front {
+        background-color: red;
+        -moz-transform: translateZ(100px);
+        -webkit-transform: translateZ(100px);
+        transform: translateZ(100px);
+
+      }
+
+      div#back {
+        background-color: red;
+        -moz-transform: translateZ(-100px) rotateY(180deg);
+        -webkit-transform: translateZ(-100px) rotateY(180deg);
+        transform: translateZ(-100px) rotateY(180deg);
+      }
+
+      div#top {
+        background-color: yellow;
+        -moz-transform: translateY(-100px) rotateX(90deg);
+        -webkit-transform: translateY(-100px) rotateX(90deg);
+        transform: translateY(-100px) rotateX(90deg);
+      }
+
+      div#bottom {
+        background-color: yellow;
+        -moz-transform: translateY(100px) rotateX(-90deg);
+        -webkit-transform: translateY(100px) rotateX(-90deg);
+        transform: translateY(100px) rotateX(-90deg);
+
+      }
+
+      div#left {
+        background-color: green;
+        -moz-transform: translateX(-100px) rotateY(-90deg);
+        -webkit-transform: translateX(-100px) rotateY(-90deg);
+        transform: translateX(-100px) rotateY(-90deg);
+      }
+
+      div#right {
+        background-color: green;
+        -moz-transform: translateX(100px) rotateY(90deg);
+        -webkit-transform: translateX(100px) rotateY(90deg);
+        transform: translateX(100px) rotateY(90deg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="viewport">
+      <div id="cube">
+        <div id="front">
+          <h1>FRONT</h1>
+        </div>
+
+        <div id="back">
+          <h1>BACK</h1>
+        </div>
+
+        <div id="top">
+          <h1>TOP</h1>
+        </div>
+
+        <div id="bottom">
+          <h1>BOTTOM</h1>
+        </div>
+
+        <div id="left">
+          <h1>LEFT</h1>
+        </div>
+
+        <div id="right">
+          <h1>RIGHT</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
