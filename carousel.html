@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel</title>
+
+    <style type="text/css">
+        html, body {
+            background-color: lemonchiffon;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        div.container {
+            width: 210px;
+            height: 140px;
+            margin: 6rem auto;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        div.button__container {
+            margin: 8rem auto;
+            text-align: center;
+            width: 300px;
+        }
+
+        div.button__container button {
+            font-size: 1.5rem;
+            height: 3rem;
+            margin: 0.5rem 0.5rem 0.5rem 6rem;
+            padding: 0.5rem;
+            width: 12rem;
+        }
+
+        div#carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: all 1s ease;
+        }
+
+        div#carousel figure {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            display: block;
+            position: absolute;
+            width: 186px;
+            height: 116px;
+            left: 10px;
+            top: 10px;
+            border: 2px solid #eee;
+        }
+
+        div#carousel figure:nth-child(1) {
+            background-color: crimson;
+            transform: rotateY(0deg) translateZ(288px);
+
+        }
+
+        div#carousel figure:nth-child(2) {
+            background-color: darkorange;
+            transform: rotateY(40deg) translateZ(288px);
+
+        }
+
+        div#carousel figure:nth-child(3) {
+            background-color: limegreen;
+            transform: rotateY(80deg) translateZ(288px);
+        }
+
+        div#carousel figure:nth-child(4) {
+            background-color: khaki;
+            transform: rotateY(120deg) translateZ(288px);
+        }
+
+        div#carousel figure:nth-child(5) {
+            background-color: orchid;
+            transform: rotateY(160deg) translateZ(288px);
+        }
+
+        div#carousel figure:nth-child(6) {
+            background-color: aqua;
+            transform: rotateY(200deg) translateZ(288px);
+        }
+
+        div#carousel figure:nth-child(7) {
+            background-color: magenta;
+            transform: rotateY(240deg) translateZ(288px);
+        }
+
+        div#carousel figure:nth-child(8) {
+            background-color: darksalmon;
+            transform: rotateY(280deg) translateZ(288px);
+        }
+
+        div#carousel figure:nth-child(9) {
+            background-color: indigo;
+            transform: rotateY(320deg) translateZ(288px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>3d Carousel :)</h1>
+        <div id="carousel">
+            <figure>1</figure>
+            <figure>2</figure>
+            <figure>3</figure>
+            <figure>4</figure>
+            <figure>5</figure>
+            <figure>6</figure>
+            <figure>7</figure>
+            <figure>8</figure>
+            <figure>9</figure>
+        </div>
+    </div>
+
+    <div class="container button__container">
+        <button type="button" onclick="nextSlide()">+ next +</button>
+        <button type="button" onclick="previousSlide()">- previous -</button>
+    </div>
+
+    <script type="text/javascript">
+        const carousel = document.getElementById('carousel');
+
+        let rotation = 0;
+
+        applyRotation();
+
+        function applyRotation() {
+          const rotatingCss = `transform: translateZ(-288px) rotateY(${rotation}deg);`;
+
+          carousel.setAttribute('style', rotatingCss)
+        }
+
+        function previousSlide() {
+          rotation = (rotation >= 0) ? -320 : rotation + 40;
+          applyRotation();
+        }
+
+        function nextSlide() {
+          rotation = (rotation <= -320) ? 0 : rotation - 40;
+          applyRotation();
+        }
+    </script>
+</body>
+</html>
